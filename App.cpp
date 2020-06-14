@@ -5,31 +5,89 @@ int main(){
 	int cantEquipos = 0;
 	int mayor = 0;
 	
-
-	printf("Indicar la cantidad de equipos: ");
-	scanf("%d", &cantEquipos);	
-
-	fflush(stdin);
+	int opcion;
+	int second_option;
 	
 	int puntaje[cantEquipos];
 	int kills[cantEquipos];
 	int top[cantEquipos];
+	
+	
 	char teams[cantEquipos][100];
 	
-	fflush(stdin);
-	
-	for (int i = 0; i < cantEquipos; i++){
+	do{
+		printf("\n Welcome to KaionApp v0.2");
+		printf("\n \n 1. PUBG Mobile");
+		printf("\n 2. CSGO");
+		printf("\n 3. Exit \n");
 		
-		printf("Nombre del equipo: ");
-		scanf("%[^\n]", teams[i]);
-		printf("Ingresa la cantida de kills del equipo: ");
-		scanf("%d", &kills[i]);
-		printf("Top de la partida: ");
-		scanf("%d", &top[i]);	
-		puntaje[i] = kills[i];
+		printf("\n Kaion > ");
 		fflush(stdin);
+		scanf("%d", &opcion);
+		
+		switch(opcion){
+			case 1:
+				printf("Indicar la cantidad de equipos: ");
+				fflush(stdin);
+				scanf("%d", &cantEquipos);
+				
+				for (int i = 0; i < cantEquipos; i++){
+								
+					printf("Nombre del equipo: ");
+					fflush(stdin);
+					scanf("%[^\n]", teams[i]);
+					printf("Ingresa la cantida de kills del equipo: ");
+					fflush(stdin);
+					scanf("%d", &kills[i]);
+					printf("Top de la partida: ");
+					fflush(stdin);
+					scanf("%d", &top[i]);	
+					puntaje[i] = kills[i];
+					
+				}
+				
+/*				do{
+					printf("\n Hubo otra partida? 1. Si 2. No");
+					scanf("%d", &second_option);
+					
+					switch(second_option){
+						case 1:
+							printf("Indicar la cantidad de equipos: ");
+							fflush(stdin);
+							scanf("%d", &cantEquipos);
+							
+							for (int i = 0; i < cantEquipos; i++){
+											
+								printf("Nombre del equipo: ");
+								fflush(stdin);
+								scanf("%[^\n]", teams[i]);
+								printf("Ingresa la cantida de kills del equipo: ");
+								fflush(stdin);
+								scanf("%d", &kills[i]);
+								printf("Top de la partida: ");
+								fflush(stdin);
+								scanf("%d", &top[i]);	
+								puntaje[i] = puntaje[i] + kills[i];
+								
+							}
+							break;
+					}
+					
+				} while(second_option != 1);	*/
+				break;
+			case 2:
+				printf("\n ERROR: soon ;)");
+				break;
+			case 3:
+				printf("bye");
+				break;
+			default:
+				printf("\n ERROR: You must choose a correct option");
 
-	}
+				break;
+		}
+	} while( opcion != 3);
+
 	
 	for(int v = 0; v < cantEquipos; v++){
 		switch(top[v]){
@@ -98,21 +156,17 @@ int main(){
 		}
 	}
 	
-	fflush(stdin);
-	
-	for(int y = 1; y < cantEquipos + 1; y++){
+				for(int y = 1; y < cantEquipos + 1; y++){
 		
-		printf("%d. Equipo: ", y);
-		printf("%s \n", teams[y - 1]);
-		printf("%d. Kills: ", y);
-		printf("%d \n", kills[y - 1]);
-		printf("%d. Top: ", y);
-		printf("%d \n", top[y - 1]);
-		printf("%d. Puntaje: ", y);
-		printf("%d \n", puntaje[y - 1]);
-
-	}
+					printf("%d. Equipo: ", y);
+					printf("%s \n", teams[y - 1]);
+					printf("%d. Kills: ", y);
+					printf("%d \n", kills[y - 1]);
+					printf("%d. Top: ", y);
+					printf("%d \n", top[y - 1]);
+					printf("%d. Puntaje: ", y);
+					printf("%d \n", puntaje[y - 1]);
+				}
 	
 	return 0;
 }
-
